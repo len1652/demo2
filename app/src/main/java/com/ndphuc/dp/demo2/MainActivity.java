@@ -4,13 +4,10 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.ListFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,9 +20,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 import java.text.ParseException;
@@ -40,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
     private ArrayList<Contact> arrContacts = new ArrayList<>();
     private Button btnAddPer;
     private static final String TAG = "MainActivity";
+    SimpleDateFormat dd= new SimpleDateFormat("dd/MM/yyyy");
 
     public MainActivity() {
     }
@@ -109,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
     private void addEvents() {
 
         themphantu();
-//        addFragment();
+        addFragment();
         chenvaolist();
         clickADD();
 
@@ -119,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = new info();
-        fragmentTransaction.replace(R.id.frame,fragment );
+        fragmentTransaction.replace(R.id.frame,fragment);
         fragmentTransaction.commit();
     }
 
@@ -234,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
     public void callbackUpdate(Contact contact) {
         for (int i =0 ;i<arrContacts.size();i++){
             if(arrContacts.get(i).getId().equals(contact.getId())){
-                SimpleDateFormat dd= new SimpleDateFormat("dd/MM/yyyy");
+
                 Intent intent = new Intent(this,updatePerson.class);
                 intent.putExtra("ID",contact.getId());
                 intent.putExtra("NAME",contact.getName());
@@ -246,5 +243,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
                 break;
             }
         }
+    }
+
+    @Override
+    public void callbackInfo(Contact contact) {
+        TextView txtNameInf = findViewById(R.id.txtNameInf);
+        TextView txtBirthInf = findViewById(R.id.txtBirthInf);
+        TextView txtAboutInf = findViewById(R.id.txtAboutInf);
+        txtNameInf.setText(contact.getName());
+        txtBirthInf.setText(dd.format(contact.getBirthDay()));
+        txtAboutInf.setText(contact.getAbout());
     }
 }

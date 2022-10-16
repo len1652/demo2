@@ -52,7 +52,7 @@
             android:id="@+id/edtUpAbout"
             style="@style/stylelabel_black"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:autoText="false"
             android:background="@drawable/textview_border"
             android:ems="10"

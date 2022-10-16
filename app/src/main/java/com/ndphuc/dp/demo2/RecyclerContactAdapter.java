@@ -42,6 +42,7 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
     interface Callback {
         void callbackRemove(Contact contact);
         void callbackUpdate(Contact contact);
+        void callbackInfo(Contact contact);
     }
     public RecyclerContactAdapter(Context context, ArrayList<Contact> arrContacts) {
         this.context = context;
@@ -85,6 +86,12 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
             public boolean onLongClick(View v) {
                 callback.callbackUpdate(model1);
                 return true;
+            }
+        });
+        holder.llrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callback.callbackInfo(model1);
             }
         });
     }

@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#B3B3B3"
     android:layout_height="match_parent"
     tools:context=".info">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="mot dong kho  chiu" />
 
-</FrameLayout>
+<!--    <ImageView-->
+<!--        android:id="@+id/imgInf"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:src="@tools:sample/avatars" />-->
+
+    <TextView
+        android:id="@+id/txtNameInf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        style="@style/stylelabel_black"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/txtBirthInf"
+        style="@style/stylelabel_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Birth"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/txtAboutInf"
+        style="@style/stylelabel_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:textSize="34sp" />
+
+</LinearLayout>
