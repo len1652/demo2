@@ -4,25 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:weightSum="10"
+    android:orientation="horizontal">
 
-    <include layout="@layout/abs_layout" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/relist1"
-        android:layout_width="match_parent"
-        android:layout_height="570dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/relist1"
+            android:layout_width="match_parent"
+            android:layout_height="262dp">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnNewPerson"
-        android:background="@drawable/my_border"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="5dp"
+        </androidx.recyclerview.widget.RecyclerView>
 
-        android:text="NEW PERSON"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNewPerson"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/my_border"
 
-        android:textColor="@color/white"
-        tools:ignore="TextContrastCheck" />
+            android:text="NEW PERSON"
+
+            android:textColor="@color/white"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6">
+
+    </FrameLayout>
 
 </LinearLayout>

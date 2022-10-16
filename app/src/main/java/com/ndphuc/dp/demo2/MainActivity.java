@@ -109,15 +109,19 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
     private void addEvents() {
 
         themphantu();
-
+//        addFragment();
         chenvaolist();
         clickADD();
 
     }
 
-
-
-
+    private void addFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment fragment = new info();
+        fragmentTransaction.replace(R.id.frame,fragment );
+        fragmentTransaction.commit();
+    }
 
 
     // tự động lấy kq trả về từ màn hình khác
