@@ -34,6 +34,7 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
 
     private Callback callback;
 
+
     void setCallBack(Callback callback) {
         this.callback=callback;
     }
@@ -100,7 +101,7 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
         TextView lblName;
         ImageView imgAvatar;
         ImageButton btnDelete;
-       LinearLayout llrow;
+        LinearLayout llrow;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

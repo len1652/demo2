@@ -7,6 +7,10 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -102,10 +107,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
     }
 
     private void addEvents() {
+
         themphantu();
+
         chenvaolist();
         clickADD();
+
     }
+
+
 
 
 
@@ -138,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
     private void themphantu() {
         try {
             SimpleDateFormat  dd = new SimpleDateFormat("dd/MM/yyyy");
-            arrContacts.add(new Contact("1","Tèo", "https://i.pinimg.com/originals/7c/c7/a6/7cc7a630624d20f7797cb4c8e93c09c1.png"
+            arrContacts.add(new Contact("1","Tèo quang", "https://i.pinimg.com/originals/7c/c7/a6/7cc7a630624d20f7797cb4c8e93c09c1.png"
                     , "Một người năng động",dd.parse("30/2/1882")));
             arrContacts.add(new Contact("2","Quang", "https://cdn-icons-png.flaticon.com/128/4128/4128176.png"
                     , "Một người năng động",dd.parse("30/2/1882")));

@@ -3,4 +3,6 @@
     <string name="ErrorAddArray">"Error when add 1 item to Array"</string>
     <string name="LackOfInformation">You have not filled in all the information</string>
     <string name="ErrDate">wrong date conversion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
