@@ -6,20 +6,23 @@
     android:orientation="vertical"
     android:background="#B3B3B3"
     android:layout_height="match_parent"
+
     tools:context=".info">
 
     <!-- TODO: Update blank fragment layout -->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imgInf"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:src="@tools:sample/avatars" />-->
+    <ImageView
+        android:id="@+id/imgInf"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        tools:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/txtNameInf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="Name"
         style="@style/stylelabel_black"
         android:textSize="34sp" />
@@ -28,6 +31,7 @@
         android:id="@+id/txtBirthInf"
         style="@style/stylelabel_black"
         android:layout_width="match_parent"
+        android:layout_marginStart="5dp"
         android:layout_height="wrap_content"
         android:text="Birth"
         android:textSize="34sp" />
@@ -35,6 +39,7 @@
     <TextView
         android:id="@+id/txtAboutInf"
         style="@style/stylelabel_black"
+        android:layout_marginStart="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="About"

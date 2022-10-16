@@ -24,6 +24,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -247,11 +250,18 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
 
     @Override
     public void callbackInfo(Contact contact) {
+        ImageView imgInf = findViewById(R.id.imgInf);
         TextView txtNameInf = findViewById(R.id.txtNameInf);
         TextView txtBirthInf = findViewById(R.id.txtBirthInf);
         TextView txtAboutInf = findViewById(R.id.txtAboutInf);
         txtNameInf.setText(contact.getName());
         txtBirthInf.setText(dd.format(contact.getBirthDay()));
         txtAboutInf.setText(contact.getAbout());
+
+        //load image
+        Glide.with(this)
+                .load(contact.getAvatar())
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .into(imgInf);
     }
 }
