@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
     private Button btnAddPer;
     private static final String TAG = "MainActivity";
     SimpleDateFormat dd= new SimpleDateFormat("dd/MM/yyyy");
+
 
     public MainActivity() {
     }
@@ -116,11 +118,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
     }
 
     private void addFragment() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragment = new info();
-        fragmentTransaction.replace(R.id.frame,fragment);
-        fragmentTransaction.commit();
+
+        Configuration configuration = getResources().getConfiguration();
+
+        if( configuration.orientation== Configuration.ORIENTATION_LANDSCAPE){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            Fragment fragment = new info();
+            fragmentTransaction.replace(R.id.frame,fragment);
+            fragmentTransaction.commit();
+        }
+
     }
 
 
@@ -250,18 +258,26 @@ public class MainActivity extends AppCompatActivity implements RecyclerContactAd
 
     @Override
     public void callbackInfo(Contact contact) {
-        ImageView imgInf = findViewById(R.id.imgInf);
-        TextView txtNameInf = findViewById(R.id.txtNameInf);
-        TextView txtBirthInf = findViewById(R.id.txtBirthInf);
-        TextView txtAboutInf = findViewById(R.id.txtAboutInf);
-        txtNameInf.setText(contact.getName());
-        txtBirthInf.setText(dd.format(contact.getBirthDay()));
-        txtAboutInf.setText(contact.getAbout());
+        info fragmentInfo= (info)
+                getSupportFragmentManager().findFragmentById(R.id.frame);
 
-        //load image
-        Glide.with(this)
-                .load(contact.getAvatar())
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .into(imgInf);
+        Configuration configuration = getResources().getConfiguration();
+        if(fragmentInfo!=null && configuration.orientation== Configuration.ORIENTATION_LANDSCAPE){
+            ImageView imgInf = findViewById(R.id.imgInf);
+            TextView txtNameInf = findViewById(R.id.txtNameInf);
+            TextView txtBirthInf = findViewById(R.id.txtBirthInf);
+            TextView txtAboutInf = findViewById(R.id.txtAboutInf);
+            txtNameInf.setText(contact.getName());
+            txtBirthInf.setText(dd.format(contact.getBirthDay()));
+            txtAboutInf.setText(contact.getAbout());
+
+            //load image
+            Glide.with(this)
+                    .load(contact.getAvatar())
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(imgInf);
+        }
+
+
     }
 }
